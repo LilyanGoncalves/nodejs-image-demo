@@ -23,11 +23,9 @@ const dbConfig = {
   queueLimit: 0
 };
 
-var connection = mysql.createConnection(dbConfig);
-
-connection.connect();
-
 router.get('/consulta-dados', function (req, res) {
+  var connection = mysql.createConnection(dbConfig);
+  connection.connect();
   connection.query('SELECT * FROM customers', function (error, results, fields) {
     if (error) {
       return res.status(500).json({ error: error.message });
