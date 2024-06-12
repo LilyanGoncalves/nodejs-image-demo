@@ -1,0 +1,26 @@
+{
+  "name": "nodejs-image-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "seed-start": "npm run seed && npm run start",
+    "seed": "node seed.js",
+    "start": "node app.js",
+    "docker:network": "docker network create app-network",
+    "docker:DB": "docker run -d --network app-network -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=root -e MYSQL_USER=user -e MYSQL_PASSWORD=123456 -e MYSQL_DATABASE=db_aula mysql:5.7",
+    "docker:rebuild": "npm run docker:build && npm run docker:run ",
+    "docker:build": "docker build -t lilyangoncalves/nodejs-image-demo .",
+    "docker:run": "docker run --network app-network --name nodejs-image-demo -p 80:8080 -d lilyangoncalves/nodejs-image-demo",
+    "docker:push": "docker push lilyangoncalves/nodejs-image-demo",
+    "docker:stop": "docker stop nodejs-image-demo",
+    "docker:remove": "docker rm nodejs-image-demo"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "mysql": "^2.18.1"
+  }
+}
