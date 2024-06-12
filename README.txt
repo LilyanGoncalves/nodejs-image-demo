@@ -8,8 +8,8 @@
    docker pull lilyangoncalves/nodejs-image-demo:latest
 
 3. Execute a aplicação:
-   docker run --network app-network -p 3000:3000 --name nodejs-image-demo -d lilyangoncalves/nodejs-image-demo:latest
-   
+   docker run --network app-network --name nodejs-image-demo -p 3000:3000 -d lilyangoncalves/nodejs-image-demo     
+
 4. Acesse a URL da aplicação:
    http://localhost:3000/consulta-dados
 
