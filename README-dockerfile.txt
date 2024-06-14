@@ -1,3 +1,5 @@
+VERSÃO DOCKERFILE
+
 # Instruções para Executar a Aplicação
 
 
